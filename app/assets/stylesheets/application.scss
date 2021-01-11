@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: heavy;
+}
+
+li a:hover {
+  color:white;
+}
+
+ #tasks {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  font-family: 'Hachi Maru Pop', cursive;
+  font-size: 65px;
+}
+
+#tasks {
+  font-family: 'Indie Flower', cursive;
+  text-transform: capitalize;
+  font-size: 42px;
+  padding: 12px;
+  border-radius: 20px;
+}
