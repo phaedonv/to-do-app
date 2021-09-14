@@ -9,10 +9,10 @@
   </div>
   <% end %>
 
-  <% if @user == current_user %>
   <div class="container">
       <ul id="tasks">
         <% @tasks.each do |task| %>
+          <% if task.user == current_user %>
             <li>
               created by user: <%= task.user_id %>
             </li>
@@ -33,13 +33,12 @@
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
             </li>
-
             <% end %>
-            <% link_to task.title, tasks_path(task) %>
+          <% end %>
+          <% link_to task.title, tasks_path(task) %>
         <% end %>
       </ul>
   </div>
-  <% end %>
 </div>
 
 <hr>
