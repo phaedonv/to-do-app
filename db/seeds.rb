@@ -10,7 +10,7 @@ Task.destroy_all
 puts "hello friend"
 
 puts "creating tasks"
-
+=begin
 p task1 = Task.new(
   title: "shopping",
   details: "do the shopping",
@@ -24,5 +24,5 @@ p task2 = Task.create!(
   completed: true
   )
 task2.save
-
+=end
 puts "Goodbye friend"

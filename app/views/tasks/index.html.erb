@@ -1,37 +1,45 @@
-<% name = current_user.present? ? current_user.email : 'Stranger' %>
-
 <div class="container">
   <div>
-    <h1 id="title">My tasks</h1>
+    <h1 id="title">Tasks 2Do</h1>
   </div>
 
+  <% if user_signed_in? %>
+  <div>
+    <h2 id="user"><%= current_user.email %> is connected</h2>
+  </div>
+  <% end %>
+
+  <% if @user == current_user %>
   <div class="container">
-    <ul id="tasks">
-      <% @tasks.each do |task| %>
+      <ul id="tasks">
+        <% @tasks.each do |task| %>
+            <li>
+              created by user: <%= task.user_id %>
+            </li>
+            <% if task.completed %>
+            <li class="list-group-item list-group-item-success">
+              <%= link_to task.title, task_path(task.id) %> <i class="fa fa-check-square-o"></i>
 
-          <% if task.completed %>
-          <li class="list-group-item list-group-item-success">
-            <%= link_to task.title, task_path(task.id) %> <i class="fa fa-check-square-o"></i>
+              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+            </li>
 
-            <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
-          <% end %>
-          </li>
+            <% else %>
+            <li class="list-group-item list-group-item-danger">
+              <%= link_to task.title, task_path(task.id) %> <i class="fa fa-square-o"></i>
 
-          <% else %>
-          <li class="list-group-item list-group-item-danger">
-            <%= link_to task.title, task_path(task.id) %> <i class="fa fa-square-o"></i>
+              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+            </li>
 
-            <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
-          <% end %>
-          </li>
-
-          <% end %>
-          <% link_to task.title, tasks_path(task) %>
-      <% end %>
-    </ul>
+            <% end %>
+            <% link_to task.title, tasks_path(task) %>
+        <% end %>
+      </ul>
   </div>
+  <% end %>
 </div>
 
 <hr>
