@@ -23,7 +23,7 @@ a {
 }
 
 li a:hover {
-  color:white;
+  color:red;
 }
 
  #tasks {
@@ -45,7 +45,17 @@ li a:hover {
 #tasks {
   font-family: 'Indie Flower', cursive;
   text-transform: capitalize;
-  font-size: 42px;
+  font-size: 24px;
   padding: 12px;
   border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#taskio {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  text-align: center;
 }

@@ -5,7 +5,12 @@
 
   <% if user_signed_in? %>
   <div>
-    <h2 id="user"><%= current_user.email %> is connected</h2>
+    <% @tasks.each do |task| %>
+      <!--<% if task.user == current_user %>
+        <h2 id="user"><%= current_user.email %> is connected</h2>
+        <h2>created by user: <%= task.user_id %></h2>
+      <% end %>-->
+    <% end %>
   </div>
   <% end %>
 
@@ -13,26 +18,55 @@
       <ul id="tasks">
         <% @tasks.each do |task| %>
           <% if task.user == current_user %>
-            <li>
-              created by user: <%= task.user_id %>
-            </li>
-            <% if task.completed %>
-            <li class="list-group-item list-group-item-success">
-              <%= link_to task.title, task_path(task.id) %> <i class="fa fa-check-square-o"></i>
 
-              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
-            <% end %>
-            </li>
+
+            <% if task.completed %>
+
+              <!------------------------------------------------------------------------------------------------------------------------>
+              <li>
+                <div id="taskio">
+                  <%= form_for(task) do |f| %>
+
+                    <div class="checkbox">
+                      <label>
+                        <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+                      </label>
+                    </div>
+
+                    <%= f.submit task.title, class: 'btn btn-success' %><i class="fa fa-check-square-o"></i>
+                  <% end %>
+
+                  <!------------------------------------------------------------------------------------------------------------------------>
+
+                  <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+                <% end %>
+                </div>
+              </li>
 
             <% else %>
-            <li class="list-group-item list-group-item-danger">
-              <%= link_to task.title, task_path(task.id) %> <i class="fa fa-square-o"></i>
 
-              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
-            <% end %>
+              <!------------------------------------------------------------------------------------------------------------------------>
+              <li>
+                <div id="taskio">
+                  <%= form_for(task) do |f| %>
+                    <div class="checkbox">
+                      <label>
+                        <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+                      </label>
+                    </div>
+
+                    <%= f.submit task.title, class: 'btn btn-danger' %><i class="fa fa-square-o"></i>
+                  <% end %>
+                  <!------------------------------------------------------------------------------------------------------------------------>
+
+                  <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+              </div>
             </li>
+
             <% end %>
           <% end %>
           <% link_to task.title, tasks_path(task) %>
