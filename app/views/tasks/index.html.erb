@@ -6,10 +6,10 @@
   <% if user_signed_in? %>
   <div>
     <% @tasks.each do |task| %>
-      <% if task.user == current_user %>
+      <!--<% if task.user == current_user %>
         <h2 id="user"><%= current_user.email %> is connected</h2>
         <h2>created by user: <%= task.user_id %></h2>
-      <% end %>
+      <% end %>-->
     <% end %>
   </div>
   <% end %>

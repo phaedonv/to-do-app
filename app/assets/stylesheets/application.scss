@@ -23,7 +23,7 @@ a {
 }
 
 li a:hover {
-  color:white;
+  color:red;
 }
 
  #tasks {
@@ -55,5 +55,7 @@ li a:hover {
 
 #taskio {
   display: flex;
+  flex-direction: row;
   align-items: end;
+  text-align: center;
 }
