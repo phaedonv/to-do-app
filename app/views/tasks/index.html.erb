@@ -1,6 +1,10 @@
 <div class="container">
-  <div>
+  <div id="title-div">
     <h1 id="title">Tasks 2Do</h1>
+    <form name="changeform">
+    <input type="text" name="newtitle" size="40" />
+    <button type="button" onclick="changeTitle();">Change!</button>
+    </form>
   </div>
 
   <% if user_signed_in? %>
@@ -33,7 +37,7 @@
                       </label>
                     </div>
 
-                    <%= f.submit task.title, class: 'btn btn-success' %><i class="fa fa-check-square-o"></i>
+                    <%= f.submit task.title, class: 'btn btn-success' %> <!--<i class="fa fa-check-square-o"></i>-->
                   <% end %>
 
                   <!------------------------------------------------------------------------------------------------------------------------>
@@ -57,7 +61,7 @@
                       </label>
                     </div>
 
-                    <%= f.submit task.title, class: 'btn btn-danger' %><i class="fa fa-square-o"></i>
+                    <%= f.submit task.title, class: 'btn btn-danger' %><!--<i class="fa fa-square-o"></i>-->
                   <% end %>
                   <!------------------------------------------------------------------------------------------------------------------------>
 
@@ -80,6 +84,15 @@
 <%= link_to new_task_path do %>
   <i class="fa fa-plus"></i> Add a new task
 <% end %>
+
+<script type="text/javascript">
+    function changeTitle() {
+       if (!document.getElementById) return;
+       var newtitle = document.changeform.newtitle.value;
+       var heading1 = document.getElementById("title");
+       heading1.firstChild.nodeValue=newtitle;
+    }
+</script>
 
 
 
