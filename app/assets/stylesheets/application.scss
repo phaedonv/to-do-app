@@ -59,3 +59,14 @@ li a:hover {
   align-items: end;
   text-align: center;
 }
+
+#taskio .btn {
+  width: 42vw;
+}
+
+#title-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
