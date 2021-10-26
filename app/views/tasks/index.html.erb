@@ -41,10 +41,10 @@
                   <% end %>
 
                   <!------------------------------------------------------------------------------------------------------------------------>
-
-                  <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
-
+                  <div id="delete">
+                    <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 </div>
               </li>
@@ -64,9 +64,10 @@
                     <%= f.submit task.title, class: 'btn btn-danger' %><!--<i class="fa fa-square-o"></i>-->
                   <% end %>
                   <!------------------------------------------------------------------------------------------------------------------------>
-
-                  <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <div id="delete">
+                    <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </div>
                 <% end %>
               </div>
             </li>

@@ -1,3 +1,20 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#taskio .checkbox {
+  display: none;
+}
+
+#taskio {
+  margin: 2px
+}
+
+#taskio a {
+  padding: 0 20px;
+}
+
+#delete {
+  background-color: #005f73;
+  border-radius: 6px;
+}
