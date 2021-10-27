@@ -87,3 +87,13 @@ li a:hover {
 .to-hide {
   display: none;
 }
+
+#footer-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#footer-links .btn {
+  margin: 2vw;
+  width: 24vw;
+}

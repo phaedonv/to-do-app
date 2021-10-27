@@ -79,12 +79,21 @@
 
 <hr>
 
-<div class="to-hide">
-  <%= link_to new_task_path do %>
-    <i class="fa fa-plus"></i> Add a new task
-  <% end %>
-</div>
+<div id="footer-links">
+  <div class="to-hide">
+    <%= link_to new_task_path do %>
+      <i class="fa fa-plus"></i> Add a new task
+    <% end %>
+  </div>
 
+  <div>
+    <%= link_to 'Delete Marked Items', home_trash_em_path, data: { confirm: "Are You Sure?" }, class: 'btn btn-dark' %>
+  </div>
+
+  <div>
+    <%= link_to 'Delete ALL Items', home_trash_em_all_path, data: { confirm: "Are You Sure?" }, class: 'btn btn-dark' %>
+  </div>
+</div>
 
 
 
