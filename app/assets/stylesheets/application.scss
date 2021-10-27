@@ -63,9 +63,27 @@ li a:hover {
   width: 42vw;
 }
 
+#taskio #del-btn {
+  width: 10vw;
+}
+
 #title-div {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#add-form .form-group {
+  margin: 0px !important;
+}
+
+.to-hide {
+  display: none;
 }

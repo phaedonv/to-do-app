@@ -1,10 +1,7 @@
 <div class="container">
   <div id="title-div">
-    <h1 id="title">Tasks 2Do</h1>
-    <form name="changeform">
-    <input type="text" name="newtitle" size="40" />
-    <button type="button" onclick="changeTitle();">Change!</button>
-    </form>
+    <h1 id="title">The List</h1>
+    <%= render 'form_index' %>
   </div>
 
   <% if user_signed_in? %>
@@ -28,7 +25,7 @@
 
               <!------------------------------------------------------------------------------------------------------------------------>
               <li>
-                <div id="taskio">
+                <div class="completed-task" id="taskio">
                   <%= form_for(task) do |f| %>
 
                     <div class="checkbox">
@@ -43,7 +40,7 @@
                   <!------------------------------------------------------------------------------------------------------------------------>
                   <div id="delete">
                     <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <button class="btn btn-warning" id="del-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                   </div>
                 <% end %>
                 </div>
@@ -66,7 +63,7 @@
                   <!------------------------------------------------------------------------------------------------------------------------>
                   <div id="delete">
                     <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <button class="btn btn-warning" id="del-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                   </div>
                 <% end %>
               </div>
@@ -82,18 +79,12 @@
 
 <hr>
 
-<%= link_to new_task_path do %>
-  <i class="fa fa-plus"></i> Add a new task
-<% end %>
+<div class="to-hide">
+  <%= link_to new_task_path do %>
+    <i class="fa fa-plus"></i> Add a new task
+  <% end %>
+</div>
 
-<script type="text/javascript">
-    function changeTitle() {
-       if (!document.getElementById) return;
-       var newtitle = document.changeform.newtitle.value;
-       var heading1 = document.getElementById("title");
-       heading1.firstChild.nodeValue=newtitle;
-    }
-</script>
 
 
 
