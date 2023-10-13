@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.2'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Authentication with devise
-gem 'devise'
+gem 'devise', '>= 4.9.3'
 
 # font-awesome
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
